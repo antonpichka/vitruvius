@@ -6,4 +6,4 @@
 
 | Package                                                                                                               | NPMJS                                                                                                                                          |
 |-----------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| [vitruvius](https://github.com/antonpichka/vitruvius/tree/main/vitruvius) | Coming Soon |
+| [vitruvius](https://github.com/antonpichka/vitruvius/tree/main/vitruvius) |  [NPMJS](https://www.npmjs.com/package/@antonpichka/vitruvius) |
