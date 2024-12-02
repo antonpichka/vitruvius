@@ -1,4 +1,4 @@
-const { LocalException, EnumGuilty, BaseModel, BaseListModel, BaseModelWrapper, BaseListModelWrapper, ResultWithModelWrapper, NetworkException, BaseDataForNamed, debugPrint, ExceptionController, BaseModelWrapperRepository, BaseNamedVitruvius, BaseNamedMethodNamedVitruvius } = require("@antonpichka/vitruvius");
+const { LocalException, EnumGuilty, BaseModel, BaseListModel, BaseModelWrapper, BaseListModelWrapper, ResultWithModelWrapper, NetworkException, BaseDataForNamedVitruvius, debugPrint, ExceptionController, BaseModelWrapperRepository, BaseNamedVitruvius, BaseNamedMethodNamedVitruvius, BaseNamedCaseNamedMethodNamedVitruvius, BaseDataForNamedCaseNamedMethodNamedVitruvius } = require("@antonpichka/vitruvius");
 
 class FactoryObjectUtility {
     constructor() {
@@ -217,16 +217,6 @@ class IPAddressWrapperRepository extends BaseModelWrapperRepository {
     }
 }
 
-class DataForGetIPAddressVitruvius extends BaseDataForNamed {
-    constructor() {
-        super();
-    }
-
-    toString() {
-        return "DataForGetIPAddressVitruvius(exceptionController: " + this.exceptionController + ")";
-    }
-}
-
 const EnumFirstRequestMethodGetIPAddressVitruvius = {
     exception : "exception",
     success : "success",
@@ -250,6 +240,86 @@ class FirstRequestMethodGetIPAddressVitruvius extends BaseNamedMethodNamedVitruv
     toString() {
         return "FirstRequestMethodGetIPAddressVitruvius(exceptionController: " + this.exceptionController + ", " 
             + "iPAddress: " + this.iPAddress + ")";
+    }
+}
+
+class DataForExceptionCaseFirstRequestMethodGetIPAddressVitruvius extends BaseDataForNamedCaseNamedMethodNamedVitruvius {
+    #exceptionController;
+
+    constructor(exceptionController) {
+        super();
+        this.#exceptionController = exceptionController;
+    }
+
+    toString() {
+        return "DataForExceptionCaseFirstRequestMethodGetIPAddressVitruvius(exceptionController: " + this.exceptionController + ")";
+    }
+
+    get exceptionController() {
+        return this.#exceptionController;
+    }
+}
+
+class ExceptionCaseFirstRequestMethodGetIPAddressVitruvius extends BaseNamedCaseNamedMethodNamedVitruvius {
+    // NamedUtility
+
+    constructor(exceptionController) {
+        super(new DataForExceptionCaseFirstRequestMethodGetIPAddressVitruvius(exceptionController));
+    }
+
+    initBuild() {
+        debugPrint("Build: Exception(" + this.dataForNamedCaseNamedMethodNamedVitruvius
+            .exceptionController
+            .getKeyParameterException + ")");
+        return this;    
+    }
+
+    disposeBuild() {
+        return this;
+    }
+}
+
+class DataForSuccessCaseFirstRequestMethodGetIPAddressVitruvius extends BaseDataForNamedCaseNamedMethodNamedVitruvius {
+    #iPAddress
+
+    constructor(iPAddress) {
+        super();
+        this.#iPAddress = iPAddress;
+    }
+
+    toString() {
+        return "DataForSuccessCaseFirstRequestMethodGetIPAddressVitruvius(iPAddress: " + this.iPAddress + ")";
+    }
+
+    get iPAddress() {
+        return this.#iPAddress;
+    }
+}
+
+class SuccessCaseFirstRequestMethodGetIPAddressVitruvius extends BaseNamedCaseNamedMethodNamedVitruvius {
+    // NamedUtility
+
+    constructor(iPAddress) {
+        super(new DataForSuccessCaseFirstRequestMethodGetIPAddressVitruvius(iPAddress));
+    }
+
+    initBuild() {
+        debugPrint("Build: Success(" + this.dataForNamedCaseNamedMethodNamedVitruvius.iPAddress + ")");
+        return this;    
+    }
+
+    disposeBuild() {
+        return this;
+    }
+}
+
+class DataForGetIPAddressVitruvius extends BaseDataForNamedVitruvius {
+    constructor() {
+        super();
+    }
+
+    toString() {
+        return "DataForGetIPAddressVitruvius(exceptionController: " + this.exceptionController + ")";
     }
 }
 
@@ -283,13 +353,16 @@ class GetIPAddressVitruvius extends BaseNamedVitruvius {
 async function main() {
     const getIPAddressVitruvius = new GetIPAddressVitruvius();
     const firstRequest = await getIPAddressVitruvius.firstRequest();
-    debugPrint(firstRequest.toString());
     switch(firstRequest.getEnumNamedMethodNamedVitruvius) {
         case EnumFirstRequestMethodGetIPAddressVitruvius.exception:
-            debugPrint("Build: Exception(" + firstRequest.exceptionController.getKeyParameterException + ")");
+            new ExceptionCaseFirstRequestMethodGetIPAddressVitruvius(firstRequest.exceptionController)
+                .initBuild()
+                .disposeBuild();
             break;
         case EnumFirstRequestMethodGetIPAddressVitruvius.success:
-            debugPrint("Build: Success(" + firstRequest.iPAddress + ")");
+            new SuccessCaseFirstRequestMethodGetIPAddressVitruvius(firstRequest.iPAddress)
+                .initBuild()
+                .disposeBuild();
             break;
         default:
             break;
@@ -299,7 +372,6 @@ async function main() {
 main();
 // EXPECTED OUTPUT:
 //
-// ${toString()}
 // Build: Success(IPAddress(ip: ${your_ip}))
 
 /// OR
@@ -314,5 +386,4 @@ main();
 //
 // ===end_to_trace_exception===
 //
-// ${toString()}
 // Build: Exception(${getKeyParameterException})

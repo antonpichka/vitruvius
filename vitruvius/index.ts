@@ -1,13 +1,3 @@
-export abstract class BaseDataForNamed {
-    public exceptionController: ExceptionController;
-
-    protected constructor() {
-        this.exceptionController = ExceptionController.success();
-    }
-
-    public abstract toString(): string;
-}
-
 export abstract class BaseNamedMethodNamedVitruvius<T> {
     public readonly exceptionController: ExceptionController;
 
@@ -20,14 +10,41 @@ export abstract class BaseNamedMethodNamedVitruvius<T> {
     public abstract toString(): string;
 }
 
-export abstract class BaseNamedVitruvius<T extends BaseDataForNamed> implements IDispose {
-    protected readonly dataForNamed: T;
-
-    protected constructor(dataForNamed: T) {
-        this.dataForNamed = dataForNamed;
+export abstract class BaseDataForNamedCaseNamedMethodNamedVitruvius {
+    protected constructor() {
     }
 
-    public abstract firstRequest(): BaseNamedMethodNamedVitruvius<any>;
+    public abstract toString(): string;
+}
+
+export abstract class BaseNamedCaseNamedMethodNamedVitruvius<T extends BaseDataForNamedCaseNamedMethodNamedVitruvius> {
+    protected readonly dataForNamedCaseNamedMethodNamedVitruvius: T;
+
+    protected constructor(dataForNamedCaseNamedMethodNamedVitruvius: T) {
+        this.dataForNamedCaseNamedMethodNamedVitruvius = dataForNamedCaseNamedMethodNamedVitruvius;
+    }
+
+    public abstract initBuild(): BaseNamedCaseNamedMethodNamedVitruvius<T>;
+
+    public abstract disposeBuild(): BaseNamedCaseNamedMethodNamedVitruvius<T>;
+}
+
+export abstract class BaseDataForNamedVitruvius {
+    public exceptionController: ExceptionController;
+
+    protected constructor() {
+        this.exceptionController = ExceptionController.success();
+    }
+
+    public abstract toString(): string;
+}
+
+export abstract class BaseNamedVitruvius<T extends BaseDataForNamedVitruvius> implements IDispose {
+    protected readonly dataForNamedVitruvius: T;
+
+    protected constructor(dataForNamedVitruvius: T) {
+        this.dataForNamedVitruvius = dataForNamedVitruvius;
+    }
 
     public abstract dispose(): void;
 }

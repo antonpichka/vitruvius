@@ -1,21 +1,34 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.debugPrintException = exports.debugPrint = exports.ResultWithListModelsWrapper = exports.ResultWithModelWrapper = exports.Result = exports.ExceptionController = exports.BaseModelWrapperRepository = exports.BaseListModelWrapper = exports.BaseModelWrapper = exports.BaseModel = exports.BaseListModel = exports.BaseModelTTNamedTTNamedTTNamedTTIterator = exports.CurrentModelWIndex = exports.NetworkException = exports.LocalException = exports.EnumGuilty = exports.BaseException = exports.BaseNamedVitruvius = exports.BaseNamedMethodNamedVitruvius = exports.BaseDataForNamed = void 0;
-class BaseDataForNamed {
-    constructor() {
-        this.exceptionController = ExceptionController.success();
-    }
-}
-exports.BaseDataForNamed = BaseDataForNamed;
+exports.ResultWithListModelsWrapper = exports.ResultWithModelWrapper = exports.Result = exports.ExceptionController = exports.BaseModelWrapperRepository = exports.BaseListModelWrapper = exports.BaseModelWrapper = exports.BaseModel = exports.BaseListModel = exports.BaseModelTTNamedTTNamedTTNamedTTIterator = exports.CurrentModelWIndex = exports.NetworkException = exports.LocalException = exports.EnumGuilty = exports.BaseException = exports.BaseNamedVitruvius = exports.BaseDataForNamedVitruvius = exports.BaseNamedCaseNamedMethodNamedVitruvius = exports.BaseDataForNamedCaseNamedMethodNamedVitruvius = exports.BaseNamedMethodNamedVitruvius = void 0;
+exports.debugPrint = debugPrint;
+exports.debugPrintException = debugPrintException;
 class BaseNamedMethodNamedVitruvius {
     constructor(exceptionController) {
         this.exceptionController = exceptionController;
     }
 }
 exports.BaseNamedMethodNamedVitruvius = BaseNamedMethodNamedVitruvius;
+class BaseDataForNamedCaseNamedMethodNamedVitruvius {
+    constructor() {
+    }
+}
+exports.BaseDataForNamedCaseNamedMethodNamedVitruvius = BaseDataForNamedCaseNamedMethodNamedVitruvius;
+class BaseNamedCaseNamedMethodNamedVitruvius {
+    constructor(dataForNamedCaseNamedMethodNamedVitruvius) {
+        this.dataForNamedCaseNamedMethodNamedVitruvius = dataForNamedCaseNamedMethodNamedVitruvius;
+    }
+}
+exports.BaseNamedCaseNamedMethodNamedVitruvius = BaseNamedCaseNamedMethodNamedVitruvius;
+class BaseDataForNamedVitruvius {
+    constructor() {
+        this.exceptionController = ExceptionController.success();
+    }
+}
+exports.BaseDataForNamedVitruvius = BaseDataForNamedVitruvius;
 class BaseNamedVitruvius {
-    constructor(dataForNamed) {
-        this.dataForNamed = dataForNamed;
+    constructor(dataForNamedVitruvius) {
+        this.dataForNamedVitruvius = dataForNamedVitruvius;
     }
 }
 exports.BaseNamedVitruvius = BaseNamedVitruvius;
@@ -310,8 +323,6 @@ exports.ResultWithListModelsWrapper = ResultWithListModelsWrapper;
 function debugPrint(text) {
     console.log(text);
 }
-exports.debugPrint = debugPrint;
 function debugPrintException(text) {
     debugPrint("\x1B[31m" + text + "\x1b[0m");
 }
-exports.debugPrintException = debugPrintException;

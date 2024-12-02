@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "index": "node index.js"
+    "build" : "npm install .",
+    "index" : "node index.js"
   },
   "dependencies": {
     "@antonpichka/vitruvius": "file:.."

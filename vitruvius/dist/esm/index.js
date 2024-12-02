@@ -1,16 +1,25 @@
-export class BaseDataForNamed {
-    constructor() {
-        this.exceptionController = ExceptionController.success();
-    }
-}
 export class BaseNamedMethodNamedVitruvius {
     constructor(exceptionController) {
         this.exceptionController = exceptionController;
     }
 }
+export class BaseDataForNamedCaseNamedMethodNamedVitruvius {
+    constructor() {
+    }
+}
+export class BaseNamedCaseNamedMethodNamedVitruvius {
+    constructor(dataForNamedCaseNamedMethodNamedVitruvius) {
+        this.dataForNamedCaseNamedMethodNamedVitruvius = dataForNamedCaseNamedMethodNamedVitruvius;
+    }
+}
+export class BaseDataForNamedVitruvius {
+    constructor() {
+        this.exceptionController = ExceptionController.success();
+    }
+}
 export class BaseNamedVitruvius {
-    constructor(dataForNamed) {
-        this.dataForNamed = dataForNamed;
+    constructor(dataForNamedVitruvius) {
+        this.dataForNamedVitruvius = dataForNamedVitruvius;
     }
 }
 export class BaseException {

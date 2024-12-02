@@ -1,18 +1,27 @@
-export declare abstract class BaseDataForNamed {
-    exceptionController: ExceptionController;
-    protected constructor();
-    abstract toString(): string;
-}
 export declare abstract class BaseNamedMethodNamedVitruvius<T> {
     readonly exceptionController: ExceptionController;
     protected constructor(exceptionController: ExceptionController);
     abstract get getEnumNamedMethodNamedVitruvius(): T;
     abstract toString(): string;
 }
-export declare abstract class BaseNamedVitruvius<T extends BaseDataForNamed> implements IDispose {
-    protected readonly dataForNamed: T;
-    protected constructor(dataForNamed: T);
-    abstract firstRequest(): BaseNamedMethodNamedVitruvius<any>;
+export declare abstract class BaseDataForNamedCaseNamedMethodNamedVitruvius {
+    protected constructor();
+    abstract toString(): string;
+}
+export declare abstract class BaseNamedCaseNamedMethodNamedVitruvius<T extends BaseDataForNamedCaseNamedMethodNamedVitruvius> {
+    protected readonly dataForNamedCaseNamedMethodNamedVitruvius: T;
+    protected constructor(dataForNamedCaseNamedMethodNamedVitruvius: T);
+    abstract initBuild(): BaseNamedCaseNamedMethodNamedVitruvius<T>;
+    abstract disposeBuild(): BaseNamedCaseNamedMethodNamedVitruvius<T>;
+}
+export declare abstract class BaseDataForNamedVitruvius {
+    exceptionController: ExceptionController;
+    protected constructor();
+    abstract toString(): string;
+}
+export declare abstract class BaseNamedVitruvius<T extends BaseDataForNamedVitruvius> implements IDispose {
+    protected readonly dataForNamedVitruvius: T;
+    protected constructor(dataForNamedVitruvius: T);
     abstract dispose(): void;
 }
 export declare abstract class BaseException {
