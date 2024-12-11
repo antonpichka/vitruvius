@@ -1,13 +1,12 @@
 const { LocalException, EnumGuilty, BaseModel, BaseListModel, BaseModelWrapper, BaseListModelWrapper, ResultWithModelWrapper, NetworkException, BaseDataForNamedVitruvius, debugPrint, ExceptionController, BaseModelWrapperRepository, BaseNamedVitruvius, BaseNamedMethodNamedVitruvius, BaseNamedCaseNamedMethodNamedVitruvius, BaseDataForNamedCaseNamedMethodNamedVitruvius } = require("@antonpichka/vitruvius");
 
-class FactoryObjectUtility {
+class FactoryModelWrapperRepositoryUtility {
     constructor() {
-        if (new.target === FactoryObjectUtility) {
-            throw new LocalException("FactoryObjectUtility",EnumGuilty.developer,"FactoryObjectUtilityQQConstructor","This class is static, there is no point in calling an object and inheritance");
+        if (new.target === FactoryModelWrapperRepositoryUtility) {
+            throw new LocalException("FactoryModelWrapperRepositoryUtility",EnumGuilty.developer,"FactoryModelWrapperRepositoryUtilityQQConstructor","This class is static, there is no point in calling an object and inheritance");
         }
     }
     
-    /* ModelWrapperRepository */
     static getIPAddressWrapperRepositoryFromNamedHttpClientService(namedHttpClientService) {
         return new IPAddressWrapperRepository(namedHttpClientService);
     }
@@ -325,7 +324,7 @@ class DataForGetIPAddressVitruvius extends BaseDataForNamedVitruvius {
 
 class GetIPAddressVitruvius extends BaseNamedVitruvius {
     // ModelWrapperRepository
-    #iPAddressWrapperRepository = FactoryObjectUtility.getIPAddressWrapperRepositoryFromNamedHttpClientService(DefaultHttpClientService.instance);
+    #iPAddressWrapperRepository = FactoryModelWrapperRepositoryUtility.getIPAddressWrapperRepositoryFromNamedHttpClientService(DefaultHttpClientService.instance);
 
     // NamedUtility
 

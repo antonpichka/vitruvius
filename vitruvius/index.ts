@@ -339,7 +339,7 @@ export class ExceptionController {
         return new ExceptionController(null);
     }
 
-    public static exception(exception: BaseException | null): ExceptionController {
+    public static exception(exception: BaseException): ExceptionController {
         return new ExceptionController(exception);
     }
 
@@ -363,56 +363,56 @@ export interface IDispose {
     dispose(): void;
 }
 
-export class Result {
-    public readonly parameter: any | null;
+export class Result<T extends any> {
+    public readonly parameter: T | null;
     public readonly exceptionController: ExceptionController;
 
-    private constructor(parameter: any | null, exceptionController: ExceptionController) {
+    private constructor(parameter: T | null, exceptionController: ExceptionController) {
         this.parameter = parameter;
         this.exceptionController = exceptionController;
     }
 
-    public static success(parameter: any): Result {
+    public static success(parameter: any): Result<any> {
         return new Result(parameter,ExceptionController.success());
     }
 
-    public static exception(exception: BaseException): Result {
+    public static exception(exception: BaseException): Result<any> {
         return new Result(null,ExceptionController.exception(exception));
     }
 }
 
-export class ResultWithModelWrapper {
-    public readonly modelWrapper: BaseModelWrapper | null;
+export class ResultWithModelWrapper<T extends BaseModelWrapper> {
+    public readonly modelWrapper: T | null;
     public readonly exceptionController: ExceptionController;
 
-    private constructor(modelWrapper: BaseModelWrapper | null, exceptionController: ExceptionController) {
+    private constructor(modelWrapper: T | null, exceptionController: ExceptionController) {
         this.modelWrapper = modelWrapper;
         this.exceptionController = exceptionController;
     }
 
-    public static success(modelWrapper: BaseModelWrapper): ResultWithModelWrapper {
+    public static success(modelWrapper: BaseModelWrapper): ResultWithModelWrapper<BaseModelWrapper> {
         return new ResultWithModelWrapper(modelWrapper,ExceptionController.success());
     }
 
-    public static exception(exception: BaseException): ResultWithModelWrapper {
+    public static exception(exception: BaseException): ResultWithModelWrapper<BaseModelWrapper> {
         return new ResultWithModelWrapper(null,ExceptionController.exception(exception));
     }
 }
 
-export class ResultWithListModelsWrapper {
-    public readonly listModelWrapper: BaseListModelWrapper | null;
+export class ResultWithListModelsWrapper<T extends BaseListModelWrapper> {
+    public readonly listModelWrapper: T | null;
     public readonly exceptionController: ExceptionController;
 
-    private constructor(listModelWrapper: BaseListModelWrapper | null, exceptionController: ExceptionController) {
+    private constructor(listModelWrapper: T | null, exceptionController: ExceptionController) {
         this.listModelWrapper = listModelWrapper;
         this.exceptionController = exceptionController;
     }
 
-    public static success(listModelWrapper: BaseListModelWrapper): ResultWithListModelsWrapper {
+    public static success(listModelWrapper: BaseListModelWrapper): ResultWithListModelsWrapper<BaseListModelWrapper> {
         return new ResultWithListModelsWrapper(listModelWrapper,ExceptionController.success());
     }
 
-    public static exception(exception: BaseException): ResultWithListModelsWrapper {
+    public static exception(exception: BaseException): ResultWithListModelsWrapper<BaseListModelWrapper> {
         return new ResultWithListModelsWrapper(null,ExceptionController.exception(exception));
     }
 }

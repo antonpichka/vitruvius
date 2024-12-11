@@ -100,7 +100,7 @@ export declare class ExceptionController {
     private readonly exception;
     private constructor();
     static success(): ExceptionController;
-    static exception(exception: BaseException | null): ExceptionController;
+    static exception(exception: BaseException): ExceptionController;
     get getKeyParameterException(): string;
     isWhereNotEqualsNullParameterException(): boolean;
     toString(): string;
@@ -108,26 +108,26 @@ export declare class ExceptionController {
 export interface IDispose {
     dispose(): void;
 }
-export declare class Result {
-    readonly parameter: any | null;
+export declare class Result<T extends any> {
+    readonly parameter: T | null;
     readonly exceptionController: ExceptionController;
     private constructor();
-    static success(parameter: any): Result;
-    static exception(exception: BaseException): Result;
+    static success(parameter: any): Result<any>;
+    static exception(exception: BaseException): Result<any>;
 }
-export declare class ResultWithModelWrapper {
-    readonly modelWrapper: BaseModelWrapper | null;
+export declare class ResultWithModelWrapper<T extends BaseModelWrapper> {
+    readonly modelWrapper: T | null;
     readonly exceptionController: ExceptionController;
     private constructor();
-    static success(modelWrapper: BaseModelWrapper): ResultWithModelWrapper;
-    static exception(exception: BaseException): ResultWithModelWrapper;
+    static success(modelWrapper: BaseModelWrapper): ResultWithModelWrapper<BaseModelWrapper>;
+    static exception(exception: BaseException): ResultWithModelWrapper<BaseModelWrapper>;
 }
-export declare class ResultWithListModelsWrapper {
-    readonly listModelWrapper: BaseListModelWrapper | null;
+export declare class ResultWithListModelsWrapper<T extends BaseListModelWrapper> {
+    readonly listModelWrapper: T | null;
     readonly exceptionController: ExceptionController;
     private constructor();
-    static success(listModelWrapper: BaseListModelWrapper): ResultWithListModelsWrapper;
-    static exception(exception: BaseException): ResultWithListModelsWrapper;
+    static success(listModelWrapper: BaseListModelWrapper): ResultWithListModelsWrapper<BaseListModelWrapper>;
+    static exception(exception: BaseException): ResultWithListModelsWrapper<BaseListModelWrapper>;
 }
 export declare function debugPrint(text: string): void;
 export declare function debugPrintException(text: string): void;
