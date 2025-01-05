@@ -11,7 +11,7 @@
 
 ## Example
 
-- [Small project](https://github.com/antonpichka/vitruvius/blob/main/vitruvius/example/index.js)
+- [Small project](https://github.com/antonpichka/vitruvius/blob/main/vitruvius/example/index.ts)
 
 ## Template For Vitruvius
 
