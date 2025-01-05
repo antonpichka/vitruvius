@@ -39,9 +39,9 @@ export class BaseException {
 }
 export var EnumGuilty;
 (function (EnumGuilty) {
-    EnumGuilty[EnumGuilty["developer"] = 0] = "developer";
-    EnumGuilty[EnumGuilty["device"] = 1] = "device";
-    EnumGuilty[EnumGuilty["user"] = 2] = "user";
+    EnumGuilty["developer"] = "developer";
+    EnumGuilty["device"] = "device";
+    EnumGuilty["user"] = "user";
 })(EnumGuilty || (EnumGuilty = {}));
 export class LocalException extends BaseException {
     constructor(thisClass, enumGuilty, key, message = "") {

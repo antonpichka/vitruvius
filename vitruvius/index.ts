@@ -74,9 +74,9 @@ export abstract class BaseException {
 }
 
 export enum EnumGuilty {
-    developer,
-    device,
-    user
+    developer = "developer",
+    device = "device",
+    user = "user"
 }
 
 export class LocalException extends BaseException {
@@ -363,56 +363,56 @@ export interface IDispose {
     dispose(): void;
 }
 
-export class Result<T extends any> {
-    public readonly parameter: T | null;
+export class Result {
+    public readonly parameter: any | null;
     public readonly exceptionController: ExceptionController;
 
-    private constructor(parameter: T | null, exceptionController: ExceptionController) {
+    private constructor(parameter: any | null, exceptionController: ExceptionController) {
         this.parameter = parameter;
         this.exceptionController = exceptionController;
     }
 
-    public static success(parameter: any): Result<any> {
+    public static success(parameter: any): Result {
         return new Result(parameter,ExceptionController.success());
     }
 
-    public static exception(exception: BaseException): Result<any> {
+    public static exception(exception: BaseException): Result {
         return new Result(null,ExceptionController.exception(exception));
     }
 }
 
-export class ResultWithModelWrapper<T extends BaseModelWrapper> {
-    public readonly modelWrapper: T | null;
+export class ResultWithModelWrapper {
+    public readonly modelWrapper: BaseModelWrapper | null;
     public readonly exceptionController: ExceptionController;
 
-    private constructor(modelWrapper: T | null, exceptionController: ExceptionController) {
+    private constructor(modelWrapper: BaseModelWrapper | null, exceptionController: ExceptionController) {
         this.modelWrapper = modelWrapper;
         this.exceptionController = exceptionController;
     }
 
-    public static success(modelWrapper: BaseModelWrapper): ResultWithModelWrapper<BaseModelWrapper> {
+    public static success(modelWrapper: BaseModelWrapper): ResultWithModelWrapper {
         return new ResultWithModelWrapper(modelWrapper,ExceptionController.success());
     }
 
-    public static exception(exception: BaseException): ResultWithModelWrapper<BaseModelWrapper> {
+    public static exception(exception: BaseException): ResultWithModelWrapper {
         return new ResultWithModelWrapper(null,ExceptionController.exception(exception));
     }
 }
 
-export class ResultWithListModelsWrapper<T extends BaseListModelWrapper> {
-    public readonly listModelWrapper: T | null;
+export class ResultWithListModelsWrapper {
+    public readonly listModelWrapper: BaseListModelWrapper | null;
     public readonly exceptionController: ExceptionController;
 
-    private constructor(listModelWrapper: T | null, exceptionController: ExceptionController) {
+    private constructor(listModelWrapper: BaseListModelWrapper | null, exceptionController: ExceptionController) {
         this.listModelWrapper = listModelWrapper;
         this.exceptionController = exceptionController;
     }
 
-    public static success(listModelWrapper: BaseListModelWrapper): ResultWithListModelsWrapper<BaseListModelWrapper> {
+    public static success(listModelWrapper: BaseListModelWrapper): ResultWithListModelsWrapper {
         return new ResultWithListModelsWrapper(listModelWrapper,ExceptionController.success());
     }
 
-    public static exception(exception: BaseException): ResultWithListModelsWrapper<BaseListModelWrapper> {
+    public static exception(exception: BaseException): ResultWithListModelsWrapper {
         return new ResultWithListModelsWrapper(null,ExceptionController.exception(exception));
     }
 }
