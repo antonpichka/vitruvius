@@ -89,7 +89,7 @@ class ListIPAddressWrapper extends BaseListModelWrapper {
     }
 
     public override createListModel(): ListIPAddress<IPAddress> {
-        const listModel = new Array<any>();
+        const listModel = new Array<IPAddress>();
         for(const itemListObject of this.listsListObject) {
             listModel.push(new IPAddress(itemListObject[0] as string));
         }
